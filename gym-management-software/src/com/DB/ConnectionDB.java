@@ -25,7 +25,7 @@ public class ConnectionDB {
         try{
             conn = DriverManager.getConnection(dbUrl, userName, userPassword);
         }catch(SQLException error){
-            JOptionPane.showMessageDialog(null, "Connection Error" + error.getMessage());
+            JOptionPane.showMessageDialog(null, "Connection Error DB" + error.getMessage());
         }
         return conn;
         

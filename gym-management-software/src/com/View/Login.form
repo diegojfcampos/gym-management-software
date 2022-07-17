@@ -81,6 +81,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="textUserLogin">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="admin"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
@@ -91,6 +94,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JPasswordField" name="textPasswordUser">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="admin123"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="loginButton">
       <Properties>

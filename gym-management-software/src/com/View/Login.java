@@ -49,8 +49,12 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         jLabel1.setText("User");
 
+        textUserLogin.setText("admin");
+
         jLabel2.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         jLabel2.setText("Password");
+
+        textPasswordUser.setText("admin123");
 
         loginButton.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         loginButton.setText("Login");

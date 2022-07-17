@@ -4,6 +4,20 @@
  */
 package com.View;
 
+import com.View.classes.ClassesAdd;
+import com.View.classes.ClassesConsult;
+import com.View.classes.ClassesDelete;
+import com.View.members.MembersAdd;
+import com.View.members.MembersConsult;
+import com.View.members.MembersDelete;
+import com.View.staff.StaffAdd;
+import com.View.staff.StaffConsult;
+import com.View.staff.StaffDelete;
+import com.View.users.UsersAdd;
+import com.View.users.UsersConsult;
+import com.View.users.UsersDelete;
+import javax.swing.JInternalFrame;
+
 /**
  *
  * @author diego
@@ -15,6 +29,18 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public MainFrame() {
         initComponents();
+        
+    }
+    
+    public void windowManagemt(JInternalFrame internalFrame){
+        if(!internalFrame.isVisible()){
+            DesktopPanel.add(internalFrame);
+            internalFrame.setVisible(true);
+        }else{
+            internalFrame.setVisible(true);
+            internalFrame.toFront();
+            internalFrame.requestFocus();
+        }
     }
 
     /**
@@ -32,24 +58,25 @@ public class MainFrame extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        mainMemberNew = new javax.swing.JMenuItem();
+        mainMemberConsult = new javax.swing.JMenuItem();
+        mainMemberDelete = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
+        mainStaffNew = new javax.swing.JMenuItem();
+        mainStaffConsult = new javax.swing.JMenuItem();
+        mainStaffDelte = new javax.swing.JMenuItem();
+        mainClassesNew = new javax.swing.JMenu();
+        mainClassesAdd = new javax.swing.JMenuItem();
+        mainClassesConsult = new javax.swing.JMenuItem();
+        mainClassesDelete = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
-        jMenuItem10 = new javax.swing.JMenuItem();
-        jMenuItem11 = new javax.swing.JMenuItem();
-        jMenuItem12 = new javax.swing.JMenuItem();
+        mainUsersNew = new javax.swing.JMenuItem();
+        mainUsersConsult = new javax.swing.JMenuItem();
+        mainUsersDelete = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setExtendedState(6);
 
         javax.swing.GroupLayout DesktopPanelLayout = new javax.swing.GroupLayout(DesktopPanel);
         DesktopPanel.setLayout(DesktopPanelLayout);
@@ -70,75 +97,115 @@ public class MainFrame extends javax.swing.JFrame {
 
         jMenu3.setText("Members");
 
-        jMenuItem1.setText("New");
-        jMenu3.add(jMenuItem1);
-
-        jMenuItem2.setText("Consult");
-        jMenu3.add(jMenuItem2);
-
-        jMenuItem3.setText("Delete");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        mainMemberNew.setText("New");
+        mainMemberNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                mainMemberNewActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem3);
+        jMenu3.add(mainMemberNew);
+
+        mainMemberConsult.setText("Consult");
+        mainMemberConsult.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mainMemberConsultActionPerformed(evt);
+            }
+        });
+        jMenu3.add(mainMemberConsult);
+
+        mainMemberDelete.setText("Delete");
+        mainMemberDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mainMemberDeleteActionPerformed(evt);
+            }
+        });
+        jMenu3.add(mainMemberDelete);
 
         jMenuBar1.add(jMenu3);
 
         jMenu4.setText("Staff");
 
-        jMenuItem4.setText("New");
-        jMenu4.add(jMenuItem4);
-
-        jMenuItem5.setText("Consult");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+        mainStaffNew.setText("New");
+        mainStaffNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
+                mainStaffNewActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem5);
+        jMenu4.add(mainStaffNew);
 
-        jMenuItem6.setText("Delete");
-        jMenu4.add(jMenuItem6);
+        mainStaffConsult.setText("Consult");
+        mainStaffConsult.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mainStaffConsultActionPerformed(evt);
+            }
+        });
+        jMenu4.add(mainStaffConsult);
+
+        mainStaffDelte.setText("Delete");
+        mainStaffDelte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mainStaffDelteActionPerformed(evt);
+            }
+        });
+        jMenu4.add(mainStaffDelte);
 
         jMenuBar1.add(jMenu4);
 
-        jMenu5.setText("Classes");
+        mainClassesNew.setText("Classes");
 
-        jMenuItem7.setText("New");
-        jMenu5.add(jMenuItem7);
+        mainClassesAdd.setText("New");
+        mainClassesAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mainClassesAddActionPerformed(evt);
+            }
+        });
+        mainClassesNew.add(mainClassesAdd);
 
-        jMenuItem8.setText("Consult");
-        jMenu5.add(jMenuItem8);
+        mainClassesConsult.setText("Consult");
+        mainClassesConsult.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mainClassesConsultActionPerformed(evt);
+            }
+        });
+        mainClassesNew.add(mainClassesConsult);
 
-        jMenuItem9.setText("Delete");
-        jMenu5.add(jMenuItem9);
+        mainClassesDelete.setText("Delete");
+        mainClassesDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mainClassesDeleteActionPerformed(evt);
+            }
+        });
+        mainClassesNew.add(mainClassesDelete);
 
-        jMenuBar1.add(jMenu5);
+        jMenuBar1.add(mainClassesNew);
 
         jMenu6.setText("Options");
 
         jMenu7.setText("Users");
 
-        jMenuItem10.setText("New");
-        jMenu7.add(jMenuItem10);
-
-        jMenuItem11.setText("Consult");
-        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+        mainUsersNew.setText("New");
+        mainUsersNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem11ActionPerformed(evt);
+                mainUsersNewActionPerformed(evt);
             }
         });
-        jMenu7.add(jMenuItem11);
+        jMenu7.add(mainUsersNew);
 
-        jMenuItem12.setText("Delete");
-        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+        mainUsersConsult.setText("Consult");
+        mainUsersConsult.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem12ActionPerformed(evt);
+                mainUsersConsultActionPerformed(evt);
             }
         });
-        jMenu7.add(jMenuItem12);
+        jMenu7.add(mainUsersConsult);
+
+        mainUsersDelete.setText("Delete");
+        mainUsersDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mainUsersDeleteActionPerformed(evt);
+            }
+        });
+        jMenu7.add(mainUsersDelete);
 
         jMenu6.add(jMenu7);
 
@@ -157,24 +224,73 @@ public class MainFrame extends javax.swing.JFrame {
             .addComponent(DesktopPanel, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
-        pack();
+        setSize(new java.awt.Dimension(610, 395));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+    
+    MembersAdd membersFrameNew = new MembersAdd();
+    MembersConsult membersFrameConsult = new MembersConsult();
+    MembersDelete membersFrameDelete = new MembersDelete();
+    
+    StaffAdd staffFrameNew = new StaffAdd();
+    StaffConsult staffFrameConsult = new StaffConsult();
+    StaffDelete staffFrameDelete = new StaffDelete();
+    
+    ClassesAdd classesFrameAdd = new ClassesAdd();
+    ClassesConsult classesFrameConsult = new ClassesConsult();
+    ClassesDelete classesFrameDelete = new ClassesDelete();
+    
+    UsersAdd usersFrameAdd = new UsersAdd();
+    UsersConsult usersFrameConsult = new UsersConsult();
+    UsersDelete usersFrameDelete = new UsersDelete();
+    
+    private void mainMemberDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMemberDeleteActionPerformed
+        windowManagemt(membersFrameDelete);
+    }//GEN-LAST:event_mainMemberDeleteActionPerformed
+  
+    private void mainStaffConsultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainStaffConsultActionPerformed
+        windowManagemt(staffFrameConsult);
+    }//GEN-LAST:event_mainStaffConsultActionPerformed
+    
+    private void mainUsersConsultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainUsersConsultActionPerformed
+        windowManagemt(usersFrameConsult);
+    }//GEN-LAST:event_mainUsersConsultActionPerformed
+    
+    private void mainUsersDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainUsersDeleteActionPerformed
+        windowManagemt(usersFrameDelete);
+    }//GEN-LAST:event_mainUsersDeleteActionPerformed
+      
+    private void mainMemberNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMemberNewActionPerformed
+           windowManagemt(membersFrameNew);        
+    }//GEN-LAST:event_mainMemberNewActionPerformed
+    
+    private void mainStaffNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainStaffNewActionPerformed
+        windowManagemt(staffFrameNew);   
+    }//GEN-LAST:event_mainStaffNewActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    private void mainClassesAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainClassesAddActionPerformed
+        windowManagemt(classesFrameAdd);
+    }//GEN-LAST:event_mainClassesAddActionPerformed
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
+    private void mainMemberConsultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMemberConsultActionPerformed
+        windowManagemt(membersFrameConsult);
+    }//GEN-LAST:event_mainMemberConsultActionPerformed
 
-    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem11ActionPerformed
+    private void mainStaffDelteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainStaffDelteActionPerformed
+         windowManagemt(staffFrameDelete);
+    }//GEN-LAST:event_mainStaffDelteActionPerformed
 
-    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem12ActionPerformed
+    private void mainClassesConsultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainClassesConsultActionPerformed
+       windowManagemt(classesFrameConsult);
+    }//GEN-LAST:event_mainClassesConsultActionPerformed
+
+    private void mainClassesDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainClassesDeleteActionPerformed
+        windowManagemt(classesFrameDelete);
+    }//GEN-LAST:event_mainClassesDeleteActionPerformed
+
+    private void mainUsersNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainUsersNewActionPerformed
+        windowManagemt(usersFrameAdd);
+    }//GEN-LAST:event_mainUsersNewActionPerformed
 
     /**
      * @param args the command line arguments
@@ -207,6 +323,8 @@ public class MainFrame extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainFrame().setVisible(true);
+                
+
             }
         });
     }
@@ -217,22 +335,22 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JMenuItem mainClassesAdd;
+    private javax.swing.JMenuItem mainClassesConsult;
+    private javax.swing.JMenuItem mainClassesDelete;
+    private javax.swing.JMenu mainClassesNew;
+    private javax.swing.JMenuItem mainMemberConsult;
+    private javax.swing.JMenuItem mainMemberDelete;
+    private javax.swing.JMenuItem mainMemberNew;
+    private javax.swing.JMenuItem mainStaffConsult;
+    private javax.swing.JMenuItem mainStaffDelte;
+    private javax.swing.JMenuItem mainStaffNew;
+    private javax.swing.JMenuItem mainUsersConsult;
+    private javax.swing.JMenuItem mainUsersDelete;
+    private javax.swing.JMenuItem mainUsersNew;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,0 +1,13 @@
+create database gymproject;
+
+CREATE Table if not exists users(UserId INT auto_increment , UserName VARCHAR(60) NOT NULL, UserPassword VARCHAR(60) NOT NULL, CONSTRAINT PRIMARY KEY(UserId), UNIQUE(UserName));
+
+CREATE table if not exists member(MemberCode INT auto_increment, MemberID VARCHAR(30) NOT NULL, FirstName VARCHAR(30) NOT NULL, LastName VARCHAR(30) NOT NULL, Birthday VARCHAR(30), PhoneNumber VARCHAR(25), Email VARCHAR(50), Street VARCHAR(50), HouseNumber VARCHAR(6), Aircode VARCHAR(15), City VARCHAR(30), Country VARCHAR(30) DEFAULT "Ireland", StartDate VARCHAR(30), CONSTRAINT PRIMARY KEY(MemberCode), UNIQUE(MemberID));
+
+CREATE table if not exists staff(StaffCode INT auto_increment, StaffID VARCHAR(30) NOT NULL, FirstName VARCHAR(30)NOT NULL, LastName VARCHAR(30) NOT NULL, Birthday VARCHAR(30), PhoneNumber VARCHAR(25), Email VARCHAR(50), Street VARCHAR(50), HouseNumber VARCHAR(6), Aircode VARCHAR(15), City VARCHAR(30), Country VARCHAR(30) DEFAULT "Ireland", StartDate VARCHAR(30), Function VARCHAR(50), Salary VARCHAR(30), Iban VARCHAR(20), CONSTRAINT PRIMARY KEY(StaffCode), UNIQUE(StaffID));
+
+
+CREATE table if not exists classes(ClassID INT auto_increment PRIMARY KEY, ClassName VARCHAR(50) NOT NULL, ClassCapacity VARCHAR(10), Duration VARCHAR(30), Description VARCHAR(500), CONSTRAINT UNIQUE(ClassName));
+
+INSERT INTO member(MemberID, FirstName, LastName, Birthday, PhoneNumber, Email, Street, HouseNumber, Aircode, City, Country, StartDate) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)
+
