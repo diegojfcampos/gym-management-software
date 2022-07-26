@@ -9,6 +9,20 @@ package com.Objects;
  * @author diego
  */
 public class Classes {
+
+    /**
+     * @return the ClassesID
+     */
+    public int getClassesID() {
+        return ClassesID;
+    }
+
+    /**
+     * @param ClassesID the ClassesID to set
+     */
+    public void setClassesID(int ClassesID) {
+        this.ClassesID = ClassesID;
+    }
     
     protected int ClassesID;
     protected String name;

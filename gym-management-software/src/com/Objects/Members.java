@@ -9,6 +9,7 @@ package com.Objects;
  * @author diego
  */
 public class Members {
+
     protected int code;
     protected String id;
     protected String firstName;
@@ -216,6 +217,5 @@ public class Members {
     public void setCode(int code) {
         this.code = code;
     }
-    
-    
+
 }

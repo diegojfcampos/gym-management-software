@@ -4,18 +4,11 @@
  */
 package com.View;
 
-import com.View.classes.ClassesAdd;
-import com.View.classes.ClassesConsult;
-import com.View.classes.ClassesDelete;
-import com.View.members.MembersAdd;
-import com.View.members.MembersConsult;
-import com.View.members.MembersDelete;
-import com.View.staff.StaffAdd;
-import com.View.staff.StaffConsult;
-import com.View.staff.StaffDelete;
-import com.View.users.UsersAdd;
-import com.View.users.UsersConsult;
-import com.View.users.UsersDelete;
+import com.View.classes.ClassesManagement;
+import com.View.members.MembersManagementView;
+import com.View.staff.StaffManagementView;
+import com.View.users.UsersManagement;
+
 import javax.swing.JInternalFrame;
 
 /**
@@ -29,14 +22,14 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public MainFrame() {
         initComponents();
-        
+
     }
-    
-    public void windowManagemt(JInternalFrame internalFrame){
-        if(!internalFrame.isVisible()){
+
+    public void windowManagemt(JInternalFrame internalFrame) {
+        if (!internalFrame.isVisible()) {
             DesktopPanel.add(internalFrame);
             internalFrame.setVisible(true);
-        }else{
+        } else {
             internalFrame.setVisible(true);
             internalFrame.toFront();
             internalFrame.requestFocus();
@@ -58,22 +51,14 @@ public class MainFrame extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
-        mainMemberNew = new javax.swing.JMenuItem();
-        mainMemberConsult = new javax.swing.JMenuItem();
-        mainMemberDelete = new javax.swing.JMenuItem();
+        mainMemberManagement = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         mainStaffNew = new javax.swing.JMenuItem();
-        mainStaffConsult = new javax.swing.JMenuItem();
-        mainStaffDelte = new javax.swing.JMenuItem();
         mainClassesNew = new javax.swing.JMenu();
         mainClassesAdd = new javax.swing.JMenuItem();
-        mainClassesConsult = new javax.swing.JMenuItem();
-        mainClassesDelete = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
         mainUsersNew = new javax.swing.JMenuItem();
-        mainUsersConsult = new javax.swing.JMenuItem();
-        mainUsersDelete = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(6);
@@ -97,35 +82,19 @@ public class MainFrame extends javax.swing.JFrame {
 
         jMenu3.setText("Members");
 
-        mainMemberNew.setText("New");
-        mainMemberNew.addActionListener(new java.awt.event.ActionListener() {
+        mainMemberManagement.setText("Management");
+        mainMemberManagement.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mainMemberNewActionPerformed(evt);
+                mainMemberManagementActionPerformed(evt);
             }
         });
-        jMenu3.add(mainMemberNew);
-
-        mainMemberConsult.setText("Consult");
-        mainMemberConsult.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mainMemberConsultActionPerformed(evt);
-            }
-        });
-        jMenu3.add(mainMemberConsult);
-
-        mainMemberDelete.setText("Delete");
-        mainMemberDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mainMemberDeleteActionPerformed(evt);
-            }
-        });
-        jMenu3.add(mainMemberDelete);
+        jMenu3.add(mainMemberManagement);
 
         jMenuBar1.add(jMenu3);
 
         jMenu4.setText("Staff");
 
-        mainStaffNew.setText("New");
+        mainStaffNew.setText("Management");
         mainStaffNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mainStaffNewActionPerformed(evt);
@@ -133,27 +102,11 @@ public class MainFrame extends javax.swing.JFrame {
         });
         jMenu4.add(mainStaffNew);
 
-        mainStaffConsult.setText("Consult");
-        mainStaffConsult.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mainStaffConsultActionPerformed(evt);
-            }
-        });
-        jMenu4.add(mainStaffConsult);
-
-        mainStaffDelte.setText("Delete");
-        mainStaffDelte.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mainStaffDelteActionPerformed(evt);
-            }
-        });
-        jMenu4.add(mainStaffDelte);
-
         jMenuBar1.add(jMenu4);
 
         mainClassesNew.setText("Classes");
 
-        mainClassesAdd.setText("New");
+        mainClassesAdd.setText("Management");
         mainClassesAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mainClassesAddActionPerformed(evt);
@@ -161,51 +114,19 @@ public class MainFrame extends javax.swing.JFrame {
         });
         mainClassesNew.add(mainClassesAdd);
 
-        mainClassesConsult.setText("Consult");
-        mainClassesConsult.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mainClassesConsultActionPerformed(evt);
-            }
-        });
-        mainClassesNew.add(mainClassesConsult);
-
-        mainClassesDelete.setText("Delete");
-        mainClassesDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mainClassesDeleteActionPerformed(evt);
-            }
-        });
-        mainClassesNew.add(mainClassesDelete);
-
         jMenuBar1.add(mainClassesNew);
 
         jMenu6.setText("Options");
 
         jMenu7.setText("Users");
 
-        mainUsersNew.setText("New");
+        mainUsersNew.setText("Options");
         mainUsersNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mainUsersNewActionPerformed(evt);
             }
         });
         jMenu7.add(mainUsersNew);
-
-        mainUsersConsult.setText("Consult");
-        mainUsersConsult.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mainUsersConsultActionPerformed(evt);
-            }
-        });
-        jMenu7.add(mainUsersConsult);
-
-        mainUsersDelete.setText("Delete");
-        mainUsersDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mainUsersDeleteActionPerformed(evt);
-            }
-        });
-        jMenu7.add(mainUsersDelete);
 
         jMenu6.add(jMenu7);
 
@@ -227,66 +148,26 @@ public class MainFrame extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(610, 395));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-    
-    MembersAdd membersFrameNew = new MembersAdd();
-    MembersConsult membersFrameConsult = new MembersConsult();
-    MembersDelete membersFrameDelete = new MembersDelete();
-    
-    StaffAdd staffFrameNew = new StaffAdd();
-    StaffConsult staffFrameConsult = new StaffConsult();
-    StaffDelete staffFrameDelete = new StaffDelete();
-    
-    ClassesAdd classesFrameAdd = new ClassesAdd();
-    ClassesConsult classesFrameConsult = new ClassesConsult();
-    ClassesDelete classesFrameDelete = new ClassesDelete();
-    
-    UsersAdd usersFrameAdd = new UsersAdd();
-    UsersConsult usersFrameConsult = new UsersConsult();
-    UsersDelete usersFrameDelete = new UsersDelete();
-    
-    private void mainMemberDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMemberDeleteActionPerformed
-        windowManagemt(membersFrameDelete);
-    }//GEN-LAST:event_mainMemberDeleteActionPerformed
-  
-    private void mainStaffConsultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainStaffConsultActionPerformed
-        windowManagemt(staffFrameConsult);
-    }//GEN-LAST:event_mainStaffConsultActionPerformed
-    
-    private void mainUsersConsultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainUsersConsultActionPerformed
-        windowManagemt(usersFrameConsult);
-    }//GEN-LAST:event_mainUsersConsultActionPerformed
-    
-    private void mainUsersDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainUsersDeleteActionPerformed
-        windowManagemt(usersFrameDelete);
-    }//GEN-LAST:event_mainUsersDeleteActionPerformed
-      
-    private void mainMemberNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMemberNewActionPerformed
-           windowManagemt(membersFrameNew);        
-    }//GEN-LAST:event_mainMemberNewActionPerformed
-    
+
+    MembersManagementView membersFrameNew = new MembersManagementView();
+    StaffManagementView staffFrameNew = new StaffManagementView();
+
+    ClassesManagement classesFrameAdd = new ClassesManagement();
+
+    UsersManagement usersFrameAdd = new UsersManagement();
+
+
+    private void mainMemberManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMemberManagementActionPerformed
+        windowManagemt(membersFrameNew);
+    }//GEN-LAST:event_mainMemberManagementActionPerformed
+
     private void mainStaffNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainStaffNewActionPerformed
-        windowManagemt(staffFrameNew);   
+        windowManagemt(staffFrameNew);
     }//GEN-LAST:event_mainStaffNewActionPerformed
 
     private void mainClassesAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainClassesAddActionPerformed
         windowManagemt(classesFrameAdd);
     }//GEN-LAST:event_mainClassesAddActionPerformed
-
-    private void mainMemberConsultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMemberConsultActionPerformed
-        windowManagemt(membersFrameConsult);
-    }//GEN-LAST:event_mainMemberConsultActionPerformed
-
-    private void mainStaffDelteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainStaffDelteActionPerformed
-         windowManagemt(staffFrameDelete);
-    }//GEN-LAST:event_mainStaffDelteActionPerformed
-
-    private void mainClassesConsultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainClassesConsultActionPerformed
-       windowManagemt(classesFrameConsult);
-    }//GEN-LAST:event_mainClassesConsultActionPerformed
-
-    private void mainClassesDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainClassesDeleteActionPerformed
-        windowManagemt(classesFrameDelete);
-    }//GEN-LAST:event_mainClassesDeleteActionPerformed
 
     private void mainUsersNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainUsersNewActionPerformed
         windowManagemt(usersFrameAdd);
@@ -323,7 +204,6 @@ public class MainFrame extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainFrame().setVisible(true);
-                
 
             }
         });
@@ -340,17 +220,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JMenuItem mainClassesAdd;
-    private javax.swing.JMenuItem mainClassesConsult;
-    private javax.swing.JMenuItem mainClassesDelete;
     private javax.swing.JMenu mainClassesNew;
-    private javax.swing.JMenuItem mainMemberConsult;
-    private javax.swing.JMenuItem mainMemberDelete;
-    private javax.swing.JMenuItem mainMemberNew;
-    private javax.swing.JMenuItem mainStaffConsult;
-    private javax.swing.JMenuItem mainStaffDelte;
+    private javax.swing.JMenuItem mainMemberManagement;
     private javax.swing.JMenuItem mainStaffNew;
-    private javax.swing.JMenuItem mainUsersConsult;
-    private javax.swing.JMenuItem mainUsersDelete;
     private javax.swing.JMenuItem mainUsersNew;
     // End of variables declaration//GEN-END:variables
 }
