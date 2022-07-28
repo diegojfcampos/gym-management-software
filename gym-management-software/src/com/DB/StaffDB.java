@@ -28,11 +28,11 @@ public class StaffDB {
     ResultSet rs;
     ArrayList<Staff> staffList = new ArrayList<>();
     
-    public boolean addStaff(Members objStaff){
+    public boolean addStaff(Staff objStaff){
         
         conn = (Connection) new com.DB.ConnectionDB().connectDB();
         String myStatement = "INSERT INTO staff(StaffID, FirstName, LastName, Birthday, PhoneNumber, "
-                + "Email, Street, HouseNumber, Aircode, City, Country, StartDate) VALUES (?,?,?,?,?,?,?,?,?,?,?,?);";
+                + "Email, Street, HouseNumber, Aircode, City, Country, StartDate, Function, Salary, Iban) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
         
         try{
             st = conn.prepareStatement(myStatement);
@@ -49,6 +49,9 @@ public class StaffDB {
             st.setString(10, objStaff.getCity());
             st.setString(11, objStaff.getCountry());
             st.setString(12, objStaff.getStartDate());
+            st.setString(13, objStaff.getFunction());
+            st.setString(14, objStaff.getSalary());
+            st.setString(15, objStaff.getIban());
             
             st.execute();
             st.close();
@@ -85,6 +88,9 @@ public class StaffDB {
                 staff.setCity(rs.getString("City"));
                 staff.setCountry(rs.getString("Country"));
                 staff.setStartDate(rs.getString("StartDate"));
+                staff.setFunction(rs.getString("Function"));
+                staff.setSalary(rs.getString("Salary"));
+                staff.setIban(rs.getString("Iban"));
                 
                 staffList.add(staff);
             }
@@ -98,7 +104,7 @@ public class StaffDB {
     public boolean updateStaff(Staff objStaff){
         conn = (Connection) new com.DB.ConnectionDB().connectDB();
         String myStatement = "UPDATE staff set StaffID = ?, FirstName = ?, LastName = ?, Birthday = ?, PhoneNumber = ?, "
-                + "Email = ?, Street = ?, HouseNumber = ?, Aircode = ?, City = ?, Country = ?, StartDate = ? where StaffCode = ?;";
+                + "Email = ?, Street = ?, HouseNumber = ?, Aircode = ?, City = ?, Country = ?, StartDate = ?, Function = ?, Salary = ?, Iban = ? where StaffCode = ?;";
         
         try{
             st = conn.prepareStatement(myStatement);
@@ -115,8 +121,11 @@ public class StaffDB {
             st.setString(10, objStaff.getCity());
             st.setString(11, objStaff.getCountry());
             st.setString(12, objStaff.getStartDate());
+            st.setString(13, objStaff.getFunction());
+            st.setString(14, objStaff.getSalary());
+            st.setString(15, objStaff.getIban());
             
-            st.setInt(13, objStaff.getCode());
+            st.setInt(16, objStaff.getCode());
             
             st.execute();
             st.close();

@@ -44,6 +44,9 @@ public class StaffManagementView extends javax.swing.JInternalFrame {
             String city = textStaffCity.getText();
             String country = textStaffCountry.getText();
             String startDate = textStaffStartDate.getText();
+            String function = textStaffFunction.getText();
+            String salary = textStaffSalary.getText();
+            String iban = textStaffIBAN.getText();
 
             Staff staff = new Staff();
 
@@ -59,6 +62,9 @@ public class StaffManagementView extends javax.swing.JInternalFrame {
             staff.setCity(city);
             staff.setCountry(country);
             staff.setStartDate(startDate);
+            staff.setFunction(function);
+            staff.setSalary(salary);
+            staff.setIban(iban);
 
             StaffDB staffDB = new StaffDB();
             boolean checkAdding = staffDB.addStaff(staff);
@@ -91,6 +97,9 @@ public class StaffManagementView extends javax.swing.JInternalFrame {
             String city = textStaffCity.getText();
             String country = textStaffCountry.getText();
             String startDate = textStaffStartDate.getText();
+            String function = textStaffFunction.getText();
+            String salary = textStaffSalary.getText();
+            String iban = textStaffIBAN.getText();
 
             Staff staff = new Staff();
 
@@ -107,6 +116,9 @@ public class StaffManagementView extends javax.swing.JInternalFrame {
             staff.setCity(city);
             staff.setCountry(country);
             staff.setStartDate(startDate);
+            staff.setFunction(function);
+            staff.setSalary(salary);
+            staff.setIban(iban);
 
             StaffDB staffDB = new StaffDB();
             boolean checkAdding = staffDB.updateStaff(staff);
@@ -170,7 +182,10 @@ public class StaffManagementView extends javax.swing.JInternalFrame {
                     staffList.get(row).getHouseNumber(),
                     staffList.get(row).getAircode(),
                     staffList.get(row).getCity(),
-                    staffList.get(row).getCountry(),});
+                    staffList.get(row).getCountry(),
+                    staffList.get(row).getFunction(),
+                    staffList.get(row).getSalary(),
+                    staffList.get(row).getIban()});
             }
 
         } catch (Exception error) {
@@ -195,6 +210,9 @@ public class StaffManagementView extends javax.swing.JInternalFrame {
         textStaffIBAN.setText(tableStaffList.getModel().getValueAt(row, 10).toString());
         textStaffCity.setText(tableStaffList.getModel().getValueAt(row, 11).toString());
         textStaffCountry.setText(tableStaffList.getModel().getValueAt(row, 12).toString());
+        textStaffFunction.setText(tableStaffList.getModel().getValueAt(row, 13).toString());
+        textStaffSalary.setText(tableStaffList.getModel().getValueAt(row, 14).toString());
+        textStaffIBAN.setText(tableStaffList.getModel().getValueAt(row, 15).toString());
 
     }
 
@@ -212,6 +230,9 @@ public class StaffManagementView extends javax.swing.JInternalFrame {
         textStaffCity.setText(null);
         textStaffCountry.setText(null);
         textStaffStartDate.setText(null);
+        textStaffIBAN.setText(null);
+        textStaffFunction.setText(null);
+        textStaffSalary.setText(null);
     }
     
     private Staff staffMoreInfo(){
@@ -302,7 +323,6 @@ public class StaffManagementView extends javax.swing.JInternalFrame {
         textStaffHouseNumber1 = new javax.swing.JTextField();
         textStaffAircode = new javax.swing.JTextField();
         btnMemberLoad1 = new javax.swing.JButton();
-        btnMoreInfo = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -404,14 +424,14 @@ public class StaffManagementView extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Code", "ID", "First Name", "Last Name", "Start Date", "Birthday", "Phone Number", "Email", "Street", "Num", "Aircode", "City", "Country"
+                "Code", "ID", "First Name", "Last Name", "Start Date", "Birthday", "Phone Number", "Email", "Street", "Num", "Aircode", "City", "Country", "Function", "Salary", "Iban"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false, false, true, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -491,14 +511,6 @@ public class StaffManagementView extends javax.swing.JInternalFrame {
         });
         getContentPane().add(btnMemberLoad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 250, -1, -1));
 
-        btnMoreInfo.setText("jButton1");
-        btnMoreInfo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMoreInfoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnMoreInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 250, -1, -1));
-
         getAccessibleContext().setAccessibleDescription("");
         getAccessibleContext().setAccessibleParent(this);
 
@@ -556,10 +568,6 @@ public class StaffManagementView extends javax.swing.JInternalFrame {
         loadStaff();
     }//GEN-LAST:event_btnMemberLoad1ActionPerformed
 
-    private void btnMoreInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoreInfoActionPerformed
-        
-    }//GEN-LAST:event_btnMoreInfoActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMemberAlterate;
@@ -567,7 +575,6 @@ public class StaffManagementView extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnMemberLoad1;
     private javax.swing.JButton btnMemberRefresh;
     private javax.swing.JButton btnMemberRegister;
-    private javax.swing.JButton btnMoreInfo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

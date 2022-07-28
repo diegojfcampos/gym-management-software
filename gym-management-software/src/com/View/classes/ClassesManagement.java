@@ -57,7 +57,7 @@ public class ClassesManagement extends javax.swing.JInternalFrame {
         setTitle("New Classes");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Class Name");
+        jLabel1.setText("Class Name *");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
         textClassName.addActionListener(new java.awt.event.ActionListener() {
@@ -155,7 +155,7 @@ public class ClassesManagement extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
 
         textCode.setEnabled(false);
-        getContentPane().add(textCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
+        getContentPane().add(textCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 80, -1));
 
         setBounds(0, 0, 736, 623);
     }// </editor-fold>//GEN-END:initComponents
@@ -165,7 +165,11 @@ public class ClassesManagement extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_textClassNameActionPerformed
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
-        addClasses();
+        if(textClassName.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Name is mandatory.");
+        }else{addClasses(); cleanFields(); listClasses();}
+        
+      
     }//GEN-LAST:event_btnRegisterActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
