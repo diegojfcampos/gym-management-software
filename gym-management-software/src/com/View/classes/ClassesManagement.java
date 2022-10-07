@@ -203,8 +203,8 @@ public class ClassesManagement extends javax.swing.JInternalFrame {
             classes.setMaxCapacity(capacity);
             classes.setAvgDuration(duration);
             
-            ClassesDB objClassesDB = new ClassesDB();          
-            
+            ClassesDB objClassesDB = new ClassesDB();     
+          
             boolean checkProcess = objClassesDB.addClasses(classes);
             
             if(checkProcess == true){
